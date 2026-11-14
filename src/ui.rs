@@ -1787,7 +1787,7 @@ impl UiApp {
         .sense(Sense::CLICK)
         .corner_radius(10)
         .stroke(if selected {
-            Stroke::new(2., if stop { STOP_HOVER } else { ACCENT })
+            Stroke::new(2_f32, if stop { STOP_HOVER } else { ACCENT })
         } else {
             Stroke::NONE
         });
@@ -2153,19 +2153,19 @@ impl UiApp {
             clipped.circle_stroke(
                 center,
                 rect.width() * 0.65,
-                Stroke::new(1.5, Color32::from_white_alpha(35)),
+                Stroke::new(1.5_f32, Color32::from_white_alpha(35)),
             );
             clipped.circle_stroke(
                 center,
                 rect.width() * 0.44,
-                Stroke::new(1., Color32::from_white_alpha(25)),
+                Stroke::new(1_f32, Color32::from_white_alpha(25)),
             );
             clipped.line_segment(
                 [
                     rect.left_bottom() - vec2(0., 30.),
                     rect.right_top() + vec2(0., 40.),
                 ],
-                Stroke::new(1., Color32::from_white_alpha(25)),
+                Stroke::new(1_f32, Color32::from_white_alpha(25)),
             );
             clipped.text(
                 rect.min + vec2(17., 18.),
@@ -2202,7 +2202,7 @@ impl UiApp {
             p.rect_stroke(
                 rect.shrink(1.25),
                 10,
-                Stroke::new(2.5, ACCENT),
+                Stroke::new(2.5_f32, ACCENT),
                 egui::StrokeKind::Inside,
             );
         }
@@ -2228,7 +2228,7 @@ impl UiApp {
                 paint.circle_stroke(
                     rect.right_center() - vec2(80., 0.),
                     90. + i as f32 * 43.,
-                    Stroke::new(1., Color32::from_rgba_unmultiplied(101, 210, 255, 15)),
+                    Stroke::new(1_f32, Color32::from_rgba_unmultiplied(101, 210, 255, 15)),
                 );
             }
         }
@@ -2385,7 +2385,7 @@ fn configure(ctx: &egui::Context) {
     style.visuals.override_text_color = Some(TEXT);
     style.visuals.panel_fill = BG;
     style.visuals.selection.bg_fill = ACCENT;
-    style.visuals.selection.stroke = Stroke::new(1., BG);
+    style.visuals.selection.stroke = Stroke::new(1_f32, BG);
     style.spacing.item_spacing = vec2(10., 10.);
     style.spacing.button_padding = vec2(14., 10.);
     style.spacing.interact_size = vec2(48., 48.);
@@ -2524,7 +2524,7 @@ impl UiApp {
                         ui.painter().rect_stroke(
                             rect,
                             10,
-                            Stroke::new(2., ACCENT),
+                            Stroke::new(2_f32, ACCENT),
                             egui::StrokeKind::Inside,
                         );
                     }
@@ -3169,7 +3169,7 @@ impl UiApp {
                                         ui.painter().rect_stroke(
                                             rect,
                                             10,
-                                            Stroke::new(2., ACCENT),
+                                            Stroke::new(2_f32, ACCENT),
                                             egui::StrokeKind::Inside,
                                         );
                                         if self.nav.reveal {

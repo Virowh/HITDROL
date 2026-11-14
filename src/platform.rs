@@ -383,7 +383,7 @@ pub fn cache_icon(path: &Path, cache: &Path) -> Result<PathBuf> {
             let _ = DeleteObject(HGDIOBJ(bitmap.0));
             let _ = DeleteDC(dc);
             drawn?;
-            for p in bytes.chunks_exact_mut(4) {
+            for p in bytes.as_chunks_mut::<4>().0 {
                 p.swap(0, 2);
                 if p[3] > 0 {
                     for c in 0..3 {

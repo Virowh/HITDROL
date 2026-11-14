@@ -160,7 +160,9 @@ mod tests {
         let data = pcm(WAV).unwrap();
         assert_eq!(data.len(), 44100 * 4 * 25 / 10);
         let samples: Vec<i16> = data
-            .chunks_exact(2)
+            .as_chunks::<2>()
+            .0
+            .iter()
             .map(|b| i16::from_le_bytes([b[0], b[1]]))
             .collect();
         assert!(samples[..100].iter().all(|n| n.unsigned_abs() < 20));
