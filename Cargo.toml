@@ -1,6 +1,6 @@
 [package]
 name = "hitdrol-launcher"
-version = "0.4.8"
+version = "0.4.9"
 edition = "2024"
 rust-version = "1.88"
 description = "A controller and touch friendly Windows handheld game launcher"
