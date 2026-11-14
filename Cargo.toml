@@ -1,0 +1,42 @@
+[package]
+name = "hitdrol-launcher"
+version = "0.4.8"
+edition = "2024"
+rust-version = "1.88"
+description = "A controller and touch friendly Windows handheld game launcher"
+license = "MIT"
+default-run = "hitdrol-launcher"
+
+[dependencies]
+anyhow = "1"
+base64 = "0.22"
+egui = "=0.33.3"
+egui-winit = "=0.33.3"
+egui-wgpu = "=0.33.3"
+wgpu = "27.0.1"
+winit = "0.30.13"
+pollster = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.37", features = ["bundled", "backup"] }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp", "ico"] }
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+sha2 = "0.10"
+winreg = "0.55"
+windows = { version = "0.62.2", features = ["Win32_Media_Audio", "Win32_Foundation", "Win32_System_Com", "Win32_System_Com_StructuredStorage", "Win32_System_Threading", "Win32_System_Diagnostics_ToolHelp", "Win32_System_Memory", "Win32_System_Registry", "Win32_System_TaskScheduler", "Win32_System_Variant", "Win32_System_Ole", "Win32_Security_Authorization", "Win32_Security_Authentication_Identity", "Win32_System_RemoteDesktop", "Win32_System_StationsAndDesktops", "Win32_UI_Shell", "Win32_UI_WindowsAndMessaging", "Win32_UI_Input_XboxController", "Win32_Security_Credentials", "Win32_Storage_FileSystem", "Win32_Graphics_Gdi"] }
+windows-capture = "2.0.1"
+steam-vdf-parser = "0.1.2"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
+
+[build-dependencies]
+image = { version = "0.25", default-features = false, features = ["png", "ico"] }
+winresource = "0.1.34"
+
+
